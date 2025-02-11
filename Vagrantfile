@@ -10,5 +10,4 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision 'shell', path: 'provision/bitrix-install.sh', privileged: true
   config.vm.provision 'shell', reboot: true
-  config.vm.provision 'shell', path: 'provision/bitrix-init.sh'
 end
