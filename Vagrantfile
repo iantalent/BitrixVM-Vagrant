@@ -7,8 +7,7 @@ Vagrant.configure("2") do |config|
   config.vm.network "forwarded_port", guest: 443, host: 44300
   config.vm.network "forwarded_port", guest: 3306, host: 33060
   
-  config.vm.synced_folder "www/", "/home/bitrix/www", type: "nfs", nfs_version: 3, nfs_udp: false
-  config.vm.synced_folder "ext_www/", "/home/bitrix/ext_www", type: "nfs", nfs_version: 3, nfs_udp: false
+  config.vm.synced_folder "htdocs/", "/var/vagrant_synced", create: true, type: "nfs", nfs_version: 3, nfs_udp: false
 
   config.vm.provider :libvirt do |libvirt|
     libvirt.cpus = 1
