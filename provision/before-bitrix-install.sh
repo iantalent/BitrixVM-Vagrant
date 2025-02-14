@@ -9,7 +9,15 @@ sed -i '/\(^SELINUX=\).*/ s//\1disabled/' /etc/sysconfig/selinux
 grubby --update-kernel ALL --args selinux=0
 
 # create if not exists
-id -u bitrix &> /dev/null || useradd --no-create-home bitrix
+if id -u bitrix &> /dev/null; then
+	useradd bitrix
+fi
 
-# change /home/bitrix owner
-chown bitrix:bitrix /home/bitrix
+mkdir /var/vagrant_synced/www
+mkdir /var/vagrant_synced/ext_www
+
+chown bitrix:bitrix /var/vagrant_synced/www
+chown bitrix:bitrix /var/vagrant_synced/ext_www
+
+ln -s /var/vagrant_synced/www /home/bitrix/www
+ln -s /var/vagrant_synced/ext_www /home/bitrix/ext_www
