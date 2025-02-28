@@ -1,5 +1,6 @@
 # BitrixVM-Vagrant
 
+[ ] - owner for bitrix:bitrix https://developer.hashicorp.com/vagrant/docs/synced-folders/basic_usage#modifying-the-owner-group
 
 # start machine 
 ```
